@@ -61,10 +61,9 @@ var renderBars = function (ctx, players, times) {
     var xCoordinate = GAB_LEFT + SPACE_BAR * i;
     var heightBars = BAR_HEIGHT - heightBar;
     var yCoordinate = BAR_GAP_TOP + heightBar;
-    var colorBar = ctx.fillStyle = paintBars(players[i]);
     renderText(ctx, players[i], xCoordinate, TEXT_GAP_BOTTOM);
     renderText(ctx, Math.floor(times[i]), xCoordinate, BAR_GAP_TOP - TEXT_GAP_TOP + heightBar);
-    renderRectangle(ctx, xCoordinate, yCoordinate, colorBar, BAR_WIDTH, heightBars);
+    renderRectangle(ctx, xCoordinate, yCoordinate, paintBars(players[i]), BAR_WIDTH, heightBars);
   }
 };
 

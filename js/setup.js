@@ -47,10 +47,10 @@ var creatureWizard = function (array) {
 };
 
 
-var creatureFragmentWithWizards = function (int) {
+var creatureFragmentWithWizards = function (numberOfWizards) {
   var fragment = document.createDocumentFragment();
-  for (var i = 0; i < generateWizards(int).length; i++) {
-    fragment.appendChild(creatureWizard(generateWizards(int)[i]));
+  for (var i = 0; i < generateWizards(numberOfWizards).length; i++) {
+    fragment.appendChild(creatureWizard(generateWizards(numberOfWizards)[i]));
   }
   return fragment;
 };

@@ -38,7 +38,7 @@ var generateWizards = function (numberOfWizards) {
 };
 
 
-var creatureWizard = function (wizard) {
+var createWizard = function (wizard) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
   wizardElement.querySelector('.setup-similar-label').textContent = wizard.name;
   wizardElement.querySelector('.wizard-coat').style.fill = wizard.coatColor;
@@ -47,17 +47,18 @@ var creatureWizard = function (wizard) {
 };
 
 
-var creatureFragmentWithWizards = function (numberOfWizards) {
+var wizards = generateWizards(WIZARDS_NUMBER);
+
+var creatureFragmentWithWizards = function (arrayOfWizards) {
   var fragment = document.createDocumentFragment();
-  var wizards = generateWizards(numberOfWizards);
-  for (var i = 0; i < wizards.length; i++) {
-    fragment.appendChild(creatureWizard(wizards[i]));
+  for (var i = 0; i < arrayOfWizards.length; i++) {
+    fragment.appendChild(createWizard(arrayOfWizards[i]));
   }
   return fragment;
 };
 
 
-similarListElement.appendChild(creatureFragmentWithWizards(WIZARDS_NUMBER));
+similarListElement.appendChild(creatureFragmentWithWizards(wizards));
 
 userDialog.querySelector('.setup-similar').classList.remove('hidden');
 

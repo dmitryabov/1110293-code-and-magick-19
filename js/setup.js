@@ -19,8 +19,8 @@ var similarWizardTemplate = document.querySelector('#similar-wizard-template').
 content.querySelector('.setup-similar-item');
 
 
-var getRandomInt = function (array) {
-  return Math.floor(Math.random() * array.length);
+var getRandomElement = function (array) {
+  return array[Math.floor(Math.random() * array.length)];
 };
 
 
@@ -28,9 +28,9 @@ var generateWizards = function (numberOfWizards) {
   var wizards = [];
   for (var i = 0; i < numberOfWizards; i++) {
     var wizard = {
-      name: WIZARD_NAMES[getRandomInt(WIZARD_NAMES)] + ' ' + WIZARD_SURNAMES[getRandomInt(WIZARD_SURNAMES)],
-      coatColor: COAT_COLORS[getRandomInt(COAT_COLORS)],
-      eyesColor: AYES_COLORS[getRandomInt(AYES_COLORS)]
+      name: getRandomElement(WIZARD_NAMES) + ' ' + getRandomElement(WIZARD_SURNAMES),
+      coatColor: getRandomElement(COAT_COLORS),
+      eyesColor: getRandomElement(AYES_COLORS)
     };
     wizards.push(wizard);
   }
@@ -38,19 +38,20 @@ var generateWizards = function (numberOfWizards) {
 };
 
 
-var creatureWizard = function (array) {
+var creatureWizard = function (wizard) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
-  wizardElement.querySelector('.setup-similar-label').textContent = array.name;
-  wizardElement.querySelector('.wizard-coat').style.fill = array.coatColor;
-  wizardElement.querySelector('.wizard-eyes').style.fill = array.eyesColor;
+  wizardElement.querySelector('.setup-similar-label').textContent = wizard.name;
+  wizardElement.querySelector('.wizard-coat').style.fill = wizard.coatColor;
+  wizardElement.querySelector('.wizard-eyes').style.fill = wizard.eyesColor;
   return wizardElement;
 };
 
 
 var creatureFragmentWithWizards = function (numberOfWizards) {
   var fragment = document.createDocumentFragment();
-  for (var i = 0; i < generateWizards(numberOfWizards).length; i++) {
-    fragment.appendChild(creatureWizard(generateWizards(numberOfWizards)[i]));
+  var wizards = generateWizards(numberOfWizards);
+  for (var i = 0; i < wizards.length; i++) {
+    fragment.appendChild(creatureWizard(wizards[i]));
   }
   return fragment;
 };

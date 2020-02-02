@@ -49,8 +49,8 @@ var getRandomInt = function (int) {
 };
 
 
-var defineColorForBars = function (name) {
-  return (name === 'Вы') ? '#f00' : 'hsl(240, ' + getRandomInt(101) + '%' + ', 50%)';
+var giveCollorForPlauers = function (playerName) {
+  return (playerName === 'Вы') ? '#f00' : 'hsl(240, ' + getRandomInt(101) + '%' + ', 50%)';
 };
 
 
@@ -63,7 +63,7 @@ var renderBars = function (ctx, players, times) {
     var yCoordinate = BAR_GAP_TOP + heightBar;
     renderText(ctx, players[i], xCoordinate, TEXT_GAP_BOTTOM);
     renderText(ctx, Math.floor(times[i]), xCoordinate, BAR_GAP_TOP - TEXT_GAP_TOP + heightBar);
-    renderRectangle(ctx, xCoordinate, yCoordinate, defineColorForBars(players[i]), BAR_WIDTH, heightBars);
+    renderRectangle(ctx, xCoordinate, yCoordinate, giveCollorForPlauers(players[i]), BAR_WIDTH, heightBars);
   }
 };
 

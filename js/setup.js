@@ -18,42 +18,46 @@
   var wizardFireball = document.querySelector('.setup-fireball-wrap');
 
 
-  setupOpen.addEventListener('click', function () {
-    window.dialogControl.openPopup();
+  setupOpen.addEventListener('click', function (evt) {
+    window.dialogControl.openPopup(evt);
   });
 
 
   setupOpen.addEventListener('keydown', function (evt) {
-    window.util.onEnterPress(evt, window.dialogControl.openPopup);
+    window.util.onEnterPress(evt, window.dialogControl.openPopup(evt));
   });
 
 
-  setupClose.addEventListener('click', function () {
-    window.dialogControl.closePopup();
+  setupClose.addEventListener('click', function (evt) {
+    window.dialogControl.closePopup(evt);
+  });
+
+  document.addEventListener('keydown', function (evt) {
+    window.dialogControl.closePopupOnEsc(evt);
   });
 
 
   setupClose.addEventListener('keydown', function (evt) {
-    window.util.onEnterPress(evt, window.dialogControl.closePopup);
+    window.util.onEnterPress(evt, window.dialogControl.closePopup(evt));
   });
 
 
-  wizardCoat.addEventListener('click', window.changeWizard.onWizardCoatClick);
+  wizardCoat.addEventListener('click', window.changeWizard.onCoatClick);
 
-  wizardEyes.addEventListener('click', window.changeWizard.onWizardEyesClick);
+  wizardEyes.addEventListener('click', window.changeWizard.onEyesClick);
 
   wizardFireball.addEventListener('click', window.changeWizard.onFireballClick);
 
 
   wizardCoat.addEventListener('keydown', function (evt) {
-    window.util.onEnterPress(evt, window.changeWizard.onWizardCoatClick);
+    window.util.onEnterPress(evt, window.changeWizard.onCoatClick());
   });
 
   wizardEyes.addEventListener('keydown', function (evt) {
-    window.util.onEnterPress(evt, window.changeWizard.onWizardEyesClick);
+    window.util.onEnterPress(evt, window.changeWizard.onEyesClick());
   });
 
   wizardFireball.addEventListener('keydown', function (evt) {
-    window.util.onEnterPress(evt, window.changeWizard.onFireballClick);
+    window.util.onEnterPress(evt, window.changeWizard.onFireballClick());
   });
 })();

@@ -1,6 +1,9 @@
 'use strict';
 
 (function () {
+  var y = window.innerWidth / 2;
+  var x = 80;
+
   window.const = {
     ESC_KEY: 'Escape',
     ENTER_KEY: 'Enter',
@@ -13,7 +16,7 @@
       'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'],
     EYES_COLORS: ['black', 'red', 'blue', 'yellow', 'green'],
     FIREBALL_COLORS: ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'],
-    DIALOG_OFFSET_TOP: 80,
-    DIALOG_OFFSET_LEFT: 1380
+    DIALOG_OFFSET_TOP: x,
+    DIALOG_OFFSET_LEFT: y
   };
 })();

@@ -44,10 +44,12 @@
     return fragment;
   };
 
+  var addWizards = function () {
+    similarListElement.appendChild(creatureFragmentWithWizards(wizards));
+  };
+
 
   window.wizard = {
-    add: function () {
-      similarListElement.appendChild(creatureFragmentWithWizards(wizards));
-    }
+    add: addWizards
   };
 })();

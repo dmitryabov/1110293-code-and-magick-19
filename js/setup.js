@@ -18,19 +18,15 @@
   var wizardFireball = document.querySelector('.setup-fireball-wrap');
 
 
-  setupOpen.addEventListener('click', function (evt) {
-    window.dialogControl.openPopup(evt);
-  });
+  setupOpen.addEventListener('click', window.dialogControl.openPopup);
 
 
   setupOpen.addEventListener('keydown', function (evt) {
-    window.util.onEnterPress(evt, window.dialogControl.openPopup(evt));
+    window.util.onEnterPress(evt, window.dialogControl.openPopup);
   });
 
 
-  setupClose.addEventListener('click', function (evt) {
-    window.dialogControl.closePopup(evt);
-  });
+  setupClose.addEventListener('click', window.dialogControl.closePopup);
 
   document.addEventListener('keydown', function (evt) {
     window.dialogControl.closePopupOnEsc(evt);
@@ -38,7 +34,7 @@
 
 
   setupClose.addEventListener('keydown', function (evt) {
-    window.util.onEnterPress(evt, window.dialogControl.closePopup(evt));
+    window.util.onEnterPress(evt, window.dialogControl.closePopup);
   });
 
 
@@ -50,14 +46,14 @@
 
 
   wizardCoat.addEventListener('keydown', function (evt) {
-    window.util.onEnterPress(evt, window.changeWizard.onCoatClick());
+    window.util.onEnterPress(evt, window.changeWizard.onCoatClick);
   });
 
   wizardEyes.addEventListener('keydown', function (evt) {
-    window.util.onEnterPress(evt, window.changeWizard.onEyesClick());
+    window.util.onEnterPress(evt, window.changeWizard.onEyesClick);
   });
 
   wizardFireball.addEventListener('keydown', function (evt) {
-    window.util.onEnterPress(evt, window.changeWizard.onFireballClick());
+    window.util.onEnterPress(evt, window.changeWizard.onFireballClick);
   });
 })();

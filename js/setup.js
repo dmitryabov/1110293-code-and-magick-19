@@ -4,7 +4,8 @@
 
   var userDialog = document.querySelector('.setup');
 
-  window.wizard.add();
+  var URL_DATA = 'https://js.dump.academy/code-and-magick/data';
+  var URL = 'https://js.dump.academy/code-and-magick';
 
   userDialog.querySelector('.setup-similar').classList.remove('hidden');
 
@@ -55,5 +56,16 @@
 
   wizardFireball.addEventListener('keydown', function (evt) {
     window.util.onEnterPress(evt, window.changeWizard.onFireballClick);
+  });
+
+
+  window.backend.load(window.callbackFunction.successLoadHandler, window.callbackFunction.errorHandler, URL_DATA, 'GET');
+
+
+  var form = userDialog.querySelector('.setup-wizard-form');
+  form.addEventListener('submit', function (evt) {
+    window.backend.load(window.callbackFunction.succesSaveHandler, window.callbackFunction.errorHandler, URL, 'POST', new FormData(form));
+
+    evt.preventDefault();
   });
 })();
